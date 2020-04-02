@@ -21,7 +21,47 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text(appName),
         ),
-        body: MyList()
+        body: GridView(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            mainAxisSpacing: 2.0, // 纵轴网格间距
+            crossAxisSpacing: 2.0, // 横向网格间距
+            crossAxisCount: 3, // 每行显示的列数
+            childAspectRatio: 1.0, // 宽高比
+          ),
+          padding: EdgeInsets.all(10.0),
+          children: <Widget>[
+            Image.asset(
+              'assets/images/person_back.jpg',
+              height: 100.0,
+              fit: BoxFit.cover,
+            ),
+            Image.asset(
+              'assets/images/person_back.jpg',
+              height: 100.0,
+              fit: BoxFit.cover,
+            ),
+            Image.asset(
+              'assets/images/person_back.jpg',
+              height: 100.0,
+              fit: BoxFit.cover,
+            ),
+            Image.asset(
+              'assets/images/person_back.jpg',
+              height: 100.0,
+              fit: BoxFit.cover,
+            ),
+            Image.asset(
+              'assets/images/person_back.jpg',
+              height: 100.0,
+              fit: BoxFit.cover,
+            ),
+            Image.asset(
+              'assets/images/person_back.jpg',
+              height: 100.0,
+              fit: BoxFit.cover,
+            ),
+          ],
+        ),
       ),
     );
   }
