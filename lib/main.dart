@@ -8,6 +8,7 @@ void main() => runApp(
     );
 
 String appName = 'TimeCaps';
+String imageSrc = 'assets/images/person_back.jpg';
 
 class MyApp extends StatelessWidget {
   final List<String> items;
@@ -21,48 +22,90 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text(appName),
         ),
-        body: GridView(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            mainAxisSpacing: 2.0, // 纵轴网格间距
-            crossAxisSpacing: 2.0, // 横向网格间距
-            crossAxisCount: 3, // 每行显示的列数
-            childAspectRatio: 1.0, // 宽高比
-          ),
-          padding: EdgeInsets.all(10.0),
+        body: Row(
           children: <Widget>[
-            Image.asset(
-              'assets/images/person_back.jpg',
-              height: 100.0,
-              fit: BoxFit.cover,
+            RaisedButton(
+              child: Text('按钮一'),
+              color: Colors.red,
             ),
-            Image.asset(
-              'assets/images/person_back.jpg',
-              height: 100.0,
-              fit: BoxFit.cover,
+            Expanded(
+              child: RaisedButton(
+                child: Text('按钮二'),
+                color: Colors.green,
+              ),
             ),
-            Image.asset(
-              'assets/images/person_back.jpg',
-              height: 100.0,
-              fit: BoxFit.cover,
-            ),
-            Image.asset(
-              'assets/images/person_back.jpg',
-              height: 100.0,
-              fit: BoxFit.cover,
-            ),
-            Image.asset(
-              'assets/images/person_back.jpg',
-              height: 100.0,
-              fit: BoxFit.cover,
-            ),
-            Image.asset(
-              'assets/images/person_back.jpg',
-              height: 100.0,
-              fit: BoxFit.cover,
+            FlatButton(
+              child: Text("open new route"),
+              textColor: Colors.blue,
+              onPressed: () {
+                //导航到新路由
+                Navigator.push(context, MaterialPageRoute(builder: (context) => NewRoute()));
+              },
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class NewRoute extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("New route"),
+      ),
+      body: Center(
+        child: Text("This is new route"),
+      ),
+    );
+  }
+}
+
+class MyGrid extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GridView(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        mainAxisSpacing: 5.0, // 纵轴网格间距
+        crossAxisSpacing: 5.0, // 横向网格间距
+        crossAxisCount: 3, // 每行显示的列数
+        childAspectRatio: 1.0, // 宽高比
+      ),
+      padding: EdgeInsets.all(5.0),
+      children: <Widget>[
+        Image.asset(
+          imageSrc,
+          height: 100.0,
+          fit: BoxFit.cover,
+        ),
+        Image.asset(
+          imageSrc,
+          height: 100.0,
+          fit: BoxFit.cover,
+        ),
+        Image.asset(
+          imageSrc,
+          height: 100.0,
+          fit: BoxFit.cover,
+        ),
+        Image.asset(
+          imageSrc,
+          height: 100.0,
+          fit: BoxFit.cover,
+        ),
+        Image.asset(
+          imageSrc,
+          height: 100.0,
+          fit: BoxFit.cover,
+        ),
+        Image.asset(
+          imageSrc,
+          height: 100.0,
+          fit: BoxFit.cover,
+        ),
+      ],
     );
   }
 }
@@ -73,14 +116,17 @@ class MyList extends StatelessWidget {
     return ListView(
       children: <Widget>[
         Image.asset(
-          'assets/images/person_back.jpg',
+          imageSrc,
           height: 100.0,
           fit: BoxFit.cover,
         ),
         ListTile(
           leading: ClipOval(
-            child: Image.asset('assets/images/avatar.jpeg',
-                height: 30.0, fit: BoxFit.cover),
+            child: Image.asset(
+              'assets/images/avatar.jpeg',
+              height: 30.0,
+              fit: BoxFit.cover,
+            ),
           ),
           title: Text('Haroro', maxLines: 2, overflow: TextOverflow.ellipsis),
           subtitle: Text('18119921782'),
